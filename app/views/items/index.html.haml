@@ -1,0 +1,16 @@
+%h2 List of Items for Sale
+%ul 
+	- @items.each do |item| 
+		- if item.status
+			%li= "Item#: #{item.id} - Title: #{item.title} - Description: #{item.description} - Condition: #{item.condition} - Price: #{item.price}"
+			=link_to "Edit", "/items/#{item.id}/edit"
+			=link_to "Sold", "/items/#{item.id}/sold"
+			=link_to "Delete", "/items/#{item.id}"
+
+%h2 Items Sold
+%ul 
+	- @items.each do |item| 
+		-if item.status == false
+			%li= "Item#: #{item.id} - Title: #{item.title} - Price: #{item.price}"
+			=link_to "Delete", "/items/#{item.id}"		
+
