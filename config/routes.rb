@@ -6,7 +6,12 @@ GarageSaleApp::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
-  resources :items
+  resources :items do 
+    member do
+      get :update_status
+    end
+  end
+
   
 
   # Example of regular route:

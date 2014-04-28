@@ -34,9 +34,10 @@ class ItemsController < ApplicationController
 	end
 #PUT 'items/:id/sold'
 	def update_status
-		@updated_status = Item.find(parmas[:id])
-		@updated_status.status(false)
+		@updated_status = Item.find(params[:id])
+		@updated_status.update_attributes(:status => :false)
 		@updated_status.save
+		redirect_to items_path
 	end
 
 #DESTROY 'items/:id'
