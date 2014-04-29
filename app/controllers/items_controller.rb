@@ -41,9 +41,10 @@ class ItemsController < ApplicationController
 	end
 
 #DESTROY 'items/:id'
-	def delete
+	def destroy
 		@deleted_item = Item.find(params[:id])
-		@deleted_item.delete
+		@deleted_item.destroy
+		redirect_to items_path
 	end
 
 	private
